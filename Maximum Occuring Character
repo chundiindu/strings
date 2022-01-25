@@ -1,0 +1,46 @@
+Given a string str. The task is to find the maximum occurring character in the string str. If more than one character occurs the maximum number of time then print the lexicographically smaller character.
+
+
+
+
+class Solution
+{
+    //Function to find the maximum occurring character in a string.
+    public static char getMaxOccuringChar(String line)
+    {
+        Map<Character,Integer> map = new HashMap<>();
+        char max = line.charAt(0);
+        int curr = -1;
+       
+        for(int i=0;i<line.length();i++)
+        {
+            char ch = line.charAt(i);
+            if(map.containsKey(ch))
+            {
+                map.put(ch,map.get(ch)+1);
+            }
+            else
+            {
+                map.put(ch,1);
+            }
+        }
+        
+       for(Map.Entry<Character,Integer> entry:map.entrySet())
+       {
+           if(entry.getValue()>curr)
+           {
+              max=entry.getKey();
+              curr=entry.getValue();
+           }
+           else if(entry.getValue()==curr)
+           {
+               int ascii = Math.min(entry.getKey(),max);
+               max=(char) ascii;
+               
+           }
+        
+    }
+    return max;
+    
+}
+}
