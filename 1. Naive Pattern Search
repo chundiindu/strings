@@ -1,0 +1,20 @@
+Given a string S and a pattern P both of lowercase characters. The task is to check if the given pattern exists in the given string or not.
+
+
+
+class Solution
+{
+    //Function to check if the given pattern exists in the given string or not.
+    static boolean search(String pat, String txt)
+    {
+       if(txt.contains(pat))
+       {
+           return true;
+       }
+       else
+       {
+           return false;
+       }
+    }
+    
+}
